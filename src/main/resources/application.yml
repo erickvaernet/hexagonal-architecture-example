@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: hexagonal-architecture-example
+  r2dbc:
+    url: r2dbc:pool:mssql://localhost:1433/testdb
+    username: sa
+    password: secret
+
+external:
+  url: https://dummyjson.com
