@@ -1,11 +1,11 @@
-package com.example.hexagonalarchitecture.infrastructure.outbound;
+package com.example.hexagonalarchitecture.infrastructure.adapters.out;
 
 import com.example.hexagonalarchitecture.domain.model.Product;
 import com.example.hexagonalarchitecture.domain.model.ProductStatus;
-import com.example.hexagonalarchitecture.domain.ports.repository.ProductRepository;
-import com.example.hexagonalarchitecture.infrastructure.outbound.database.relational.ProductR2dbcDao;
-import com.example.hexagonalarchitecture.infrastructure.outbound.database.relational.ProductStatusR2dbcDao;
-import com.example.hexagonalarchitecture.infrastructure.outbound.database.relational.tables.ProductDb;
+import com.example.hexagonalarchitecture.domain.ports.out.ProductRepository;
+import com.example.hexagonalarchitecture.infrastructure.adapters.out.database.relational.tables.ProductDb;
+import com.example.hexagonalarchitecture.infrastructure.adapters.out.database.relational.ProductR2dbcDao;
+import com.example.hexagonalarchitecture.infrastructure.adapters.out.database.relational.ProductStatusR2dbcDao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
@@ -37,6 +37,7 @@ public class ProductRepositoryR2dbcImpl implements ProductRepository {
                         ProductDb.builder()
                                 .name(product.getName())
                                 .statusId(status.getId())
+                                .quantity(product.getQuantity())
                                 .price(product.getPrice())
                                 .build())
                 )

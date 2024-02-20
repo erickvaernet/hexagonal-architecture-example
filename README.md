@@ -15,6 +15,12 @@ The project serves as a practical illustration of the Hexagonal Architecture pat
 ## Purpose
 The primary purpose of the Hexagonal Architecture Example project is to serve as an educational resource for developers interested in understanding and implementing the hexagonal architecture pattern in Spring Boot applications. By following the project's codebase and accompanying documentation, developers can gain insights into how to design modular, maintainable, and testable applications that are resilient to changes in external dependencies.
 
+## Notes
+- In order to maintain the simplicity of the example I avoid few important things:
+- Each request/response should use an independent Dto, in this case only 1 dto is used 
+- Mappers should be used when transforming data between layers
+- Validators should be used for each request
+
 ## References
 The project draws heavily from existing literature and best practices related to hexagonal architecture, Spring Boot development, R2DBC usage, and reactive programming with WebFlux. The following are some of the key references utilized in developing the project:
 - [Introducciòn a Arquitectura Hexagonal 1](https://www.youtube.com/watch?v=y3MWfPDmVqo)

@@ -1,6 +1,6 @@
-package com.example.hexagonalarchitecture.infrastructure.outbound.external;
+package com.example.hexagonalarchitecture.infrastructure.adapters.out.external;
 
-import com.example.hexagonalarchitecture.infrastructure.outbound.external.entities.ProductExt;
+import com.example.hexagonalarchitecture.infrastructure.adapters.out.external.entities.ProductExt;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

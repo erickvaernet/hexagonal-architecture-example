@@ -1,4 +1,4 @@
-package com.example.hexagonalarchitecture.infrastructure.outbound.external.entities;
+package com.example.hexagonalarchitecture.infrastructure.adapters.out.external.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;

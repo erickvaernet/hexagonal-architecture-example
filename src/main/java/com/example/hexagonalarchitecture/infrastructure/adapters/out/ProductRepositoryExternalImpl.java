@@ -1,9 +1,9 @@
-package com.example.hexagonalarchitecture.infrastructure.outbound;
+package com.example.hexagonalarchitecture.infrastructure.adapters.out;
 
 import com.example.hexagonalarchitecture.domain.model.Product;
-import com.example.hexagonalarchitecture.domain.ports.repository.ProductRepository;
-import com.example.hexagonalarchitecture.infrastructure.outbound.external.ExternalGateway;
-import com.example.hexagonalarchitecture.infrastructure.outbound.external.entities.ProductExt;
+import com.example.hexagonalarchitecture.domain.ports.out.ProductRepository;
+import com.example.hexagonalarchitecture.infrastructure.adapters.out.external.ExternalGateway;
+import com.example.hexagonalarchitecture.infrastructure.adapters.out.external.entities.ProductExt;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;

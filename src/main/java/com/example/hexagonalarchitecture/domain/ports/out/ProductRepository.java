@@ -1,4 +1,4 @@
-package com.example.hexagonalarchitecture.domain.ports.repository;
+package com.example.hexagonalarchitecture.domain.ports.out;
 
 import com.example.hexagonalarchitecture.domain.model.Product;
 import reactor.core.publisher.Flux;

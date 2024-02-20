@@ -1,4 +1,4 @@
-package com.example.hexagonalarchitecture.infrastructure.outbound.database.relational.tables;
+package com.example.hexagonalarchitecture.infrastructure.adapters.out.database.relational.tables;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

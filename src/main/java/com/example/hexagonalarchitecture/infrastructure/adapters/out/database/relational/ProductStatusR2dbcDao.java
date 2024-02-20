@@ -1,6 +1,6 @@
-package com.example.hexagonalarchitecture.infrastructure.outbound.database.relational;
+package com.example.hexagonalarchitecture.infrastructure.adapters.out.database.relational;
 
-import com.example.hexagonalarchitecture.infrastructure.outbound.database.relational.tables.ProductStatusDb;
+import com.example.hexagonalarchitecture.infrastructure.adapters.out.database.relational.tables.ProductStatusDb;
 import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;

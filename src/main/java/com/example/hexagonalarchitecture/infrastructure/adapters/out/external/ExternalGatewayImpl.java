@@ -1,9 +1,7 @@
-package com.example.hexagonalarchitecture.infrastructure.outbound.external;
+package com.example.hexagonalarchitecture.infrastructure.adapters.out.external;
 
-import com.example.hexagonalarchitecture.domain.model.Product;
-import com.example.hexagonalarchitecture.infrastructure.outbound.external.entities.ProductExt;
+import com.example.hexagonalarchitecture.infrastructure.adapters.out.external.entities.ProductExt;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
