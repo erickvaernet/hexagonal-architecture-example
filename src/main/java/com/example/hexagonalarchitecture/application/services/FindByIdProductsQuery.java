@@ -14,6 +14,6 @@ public class FindByIdProductsQuery implements FindProductByIdUseCase {
 
     @Override
     public Mono<Product> execute(Long id) {
-        return null;
+        return productRepository.findById(id);
     }
 }

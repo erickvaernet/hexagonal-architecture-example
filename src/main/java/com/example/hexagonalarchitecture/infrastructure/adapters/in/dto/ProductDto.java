@@ -6,19 +6,21 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import static com.fasterxml.jackson.annotation.JsonProperty.Access.*;
+
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
 public class ProductDto {
-    @JsonProperty( access = JsonProperty.Access.READ_ONLY)
+    @JsonProperty(access = READ_ONLY)
     private Long id;
     @JsonProperty(required = true)
     private String name;
-    @JsonProperty(required = false,defaultValue = "AVAILABLE")
+    @JsonProperty(access = READ_ONLY)
     private String status;
-    @JsonProperty(required = false,defaultValue = "100")
+    @JsonProperty(required = true)
     private Integer quantity;
     @JsonProperty(required = true)
     private Double price;

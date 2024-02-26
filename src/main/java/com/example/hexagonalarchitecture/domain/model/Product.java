@@ -16,5 +16,4 @@ public class Product {
     private ProductStatus status;
     private Integer quantity;
     private Double price;
-
 }

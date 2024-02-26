@@ -3,7 +3,7 @@ services:
   sql-server:
     image: mcr.microsoft.com/mssql/server:2019-latest
     environment:
-      SA_PASSWORD: "secret"
+      SA_PASSWORD: "Secret123"
       ACCEPT_EULA: "Y"
       MSSQL_PID: "Developer"
     ports:

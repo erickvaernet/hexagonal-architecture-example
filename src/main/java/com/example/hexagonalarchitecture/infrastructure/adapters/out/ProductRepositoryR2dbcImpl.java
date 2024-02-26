@@ -3,18 +3,18 @@ package com.example.hexagonalarchitecture.infrastructure.adapters.out;
 import com.example.hexagonalarchitecture.domain.model.Product;
 import com.example.hexagonalarchitecture.domain.model.ProductStatus;
 import com.example.hexagonalarchitecture.domain.ports.out.ProductRepository;
-import com.example.hexagonalarchitecture.infrastructure.adapters.out.database.relational.tables.ProductDb;
 import com.example.hexagonalarchitecture.infrastructure.adapters.out.database.relational.ProductR2dbcDao;
 import com.example.hexagonalarchitecture.infrastructure.adapters.out.database.relational.ProductStatusR2dbcDao;
+import com.example.hexagonalarchitecture.infrastructure.adapters.out.database.relational.tables.ProductDb;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.function.Function;
-
 @Component
 @RequiredArgsConstructor
+@Primary
 public class ProductRepositoryR2dbcImpl implements ProductRepository {
 
     private final ProductR2dbcDao productR2DbcDao;
@@ -32,7 +32,7 @@ public class ProductRepositoryR2dbcImpl implements ProductRepository {
 
     @Override
     public Mono<Product> save(Product product) {
-        return productStatusR2dbcDao.findByName(product.getName())
+        return productStatusR2dbcDao.findByName(product.getStatus().name())
                 .flatMap(status -> productR2DbcDao.save(
                         ProductDb.builder()
                                 .name(product.getName())
@@ -47,18 +47,17 @@ public class ProductRepositoryR2dbcImpl implements ProductRepository {
 
     @Override
     public Flux<Product> findAll() {
-        return  productR2DbcDao.findAll()
-                .flatMap(getProductWithStatusFunction());
+        return  productR2DbcDao.findAll().flatMap(this::getProductWithStatusFunction);
     }
 
     @Override
     public Mono<Product> findById(Long id) {
-        return productR2DbcDao.findById(id).flatMap(getProductWithStatusFunction());
+        return productR2DbcDao.findById(id).flatMap(this::getProductWithStatusFunction);
     }
 
-    private Function<ProductDb, Mono<? extends Product>> getProductWithStatusFunction() {
-        return productDb -> productStatusR2dbcDao.findById(productDb.getStatusId())
-                .map(productStatusDb -> ProductStatus.getValue(productDb.getName()))
+    private Mono<Product> getProductWithStatusFunction(ProductDb productDb) {
+        return productStatusR2dbcDao.findById(productDb.getStatusId())
+                .map(productStatusDb -> ProductStatus.getValue(productStatusDb.getName()))
                 .map(productStatus -> Product.builder()
                         .id(productDb.getId())
                         .name(productDb.getName())

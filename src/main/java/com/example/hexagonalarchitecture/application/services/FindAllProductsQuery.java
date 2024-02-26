@@ -14,6 +14,6 @@ public class FindAllProductsQuery implements FindAllProductsUseCase {
 
     @Override
     public Flux<Product> execute() {
-        return null;
+        return productRepository.findAll();
     }
 }

@@ -5,9 +5,9 @@ spring:
   application:
     name: hexagonal-architecture-example
   r2dbc:
-    url: r2dbc:pool:mssql://localhost:1433/testdb
+    url: r2dbc:pool:mssql://localhost:1433/hexagonalDb
     username: sa
-    password: secret
+    password: Secret123
 
 external:
   url: https://dummyjson.com

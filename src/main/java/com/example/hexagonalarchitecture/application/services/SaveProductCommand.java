@@ -7,6 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
+import static com.example.hexagonalarchitecture.domain.model.ProductStatus.AVAILABLE;
+import static com.example.hexagonalarchitecture.domain.model.ProductStatus.UNAVAILABLE;
+
 @Service
 @RequiredArgsConstructor
 public class SaveProductCommand implements CreateProductUseCase {
@@ -14,6 +17,9 @@ public class SaveProductCommand implements CreateProductUseCase {
 
     @Override
     public Mono<Product> execute(Product product) {
-        return null;
+        var prod = product.getQuantity() !=null && product.getQuantity() > 0 ?
+                product.toBuilder().status(AVAILABLE).build()
+                : product.toBuilder().status(UNAVAILABLE).build();
+        return productRepository.save(prod);
     }
 }

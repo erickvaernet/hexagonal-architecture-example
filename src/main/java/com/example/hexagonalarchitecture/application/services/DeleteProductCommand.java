@@ -14,6 +14,6 @@ public class DeleteProductCommand implements DeleteProductUseCase {
 
     @Override
     public Mono<Void> execute(Long id) {
-        return null;
+        return productRepository.deleteById(id);
     }
 }
